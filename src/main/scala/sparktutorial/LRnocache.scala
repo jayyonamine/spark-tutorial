@@ -1,3 +1,4 @@
+package sparktutorial
 import spark.SparkContext
 import SparkContext._
 
@@ -33,11 +34,8 @@ object SparkLR {
       System.err.println("Usage: SparkLR <master> [<slices>]")
       System.exit(1)
     }
-    val sc = new SparkContext(args(0), "SparkLR", "/home/rbisd/nas/eval/spark-0.7.0", 
-    Seq("/home/jyona/spark.4/target/scala-2.9.2/lr_2.9.2-1.0.jar"))
-    System.err.println("Starting parallizafef blah blah points")
+    val sc = new SparkContext("local", "SparkLR", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val points = sc.parallelize(generateData, 4)
-    System.err.println("Starting parallizafef done.")
 
     // Initialize w to a random value
     var w = Vector(D, _ => 2 * rand.nextDouble - 1)
