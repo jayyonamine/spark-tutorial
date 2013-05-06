@@ -10,7 +10,7 @@ import spark._
 /**
  * Logistic regression based classification.
  */
-object SparkLR {
+object SparkLRnocache {
   val N = 100000  // Number of data points
   val D = 10  // Numer of dimensions
   val R = 0.7  // Scaling factor
