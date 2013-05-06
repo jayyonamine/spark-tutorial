@@ -35,9 +35,8 @@ object SparkLR {
     }
     val sc = new SparkContext(args(0), "SparkLR", "/home/rbisd/nas/eval/spark-0.7.0", 
     Seq("/home/jyona/spark.4/target/scala-2.9.2/lr_2.9.2-1.0.jar"))
-    val numSlices = if (args.length > 1) args(1).toInt else 2
     System.err.println("Starting parallizafef blah blah points")
-    val points = sc.parallelize(generateData, numSlices)
+    val points = sc.parallelize(generateData, 4)
     System.err.println("Starting parallizafef done.")
 
     // Initialize w to a random value
