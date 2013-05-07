@@ -14,7 +14,7 @@ object SparkLRcache {
   val N = 100000  // Number of data points
   val D = 10  // Numer of dimensions
   val R = 0.7  // Scaling factor
-  val ITERATIONS = 10
+  val ITERATIONS = 1
   val rand = new Random(42)
 
   case class DataPoint(x: Vector, y: Double)
@@ -37,7 +37,7 @@ object SparkLRcache {
     
     val sc = new SparkContext("local", "SparkLR", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val points = sc.parallelize(generateData, 4).cache()
-
+    println(points.length)
     // Initialize w to a random value
     var w = Vector(D, _ => 2 * rand.nextDouble - 1)
     println("Initial w: " + w)
