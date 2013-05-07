@@ -35,7 +35,7 @@ object test {
       System.exit(1)
     }
     
-    val sc = new SparkContext("local", "test", "~/spark", List("~/spark-tutorial/target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+    val sc = new SparkContext("local", "test", "~/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val points = sc.parallelize(generateData, 4).cache()
 
     // Initialize w to a random value
