@@ -10,7 +10,7 @@ import spark._
 /**
  * Logistic regression based classification.
  */
-object SparkLRcache {
+object test {
   val N = 100000  // Number of data points
   val D = 10  // Numer of dimensions
   val R = 0.7  // Scaling factor
@@ -35,7 +35,7 @@ object SparkLRcache {
       System.exit(1)
     }
     
-    val sc = new SparkContext("local", "SparkLR", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+    val sc = new SparkContext("local", "test", "~/spark", List("~/spark-tutorial/target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val points = sc.parallelize(generateData, 4).cache()
 
     // Initialize w to a random value
