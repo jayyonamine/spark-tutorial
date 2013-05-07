@@ -209,7 +209,7 @@ val sc = new SparkContext("local", "ry", "/home/jayyonamine/devel/spark", List("
 }
 
 
-Regression.main(args)
+//Regression.main(args)
 
 
 
