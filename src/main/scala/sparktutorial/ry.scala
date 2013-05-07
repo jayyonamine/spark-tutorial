@@ -1,4 +1,3 @@
-
 package sparktutorial
 
 import spark.SparkContext
@@ -143,7 +142,7 @@ class Matrix(d: Array[Double], r: Int, c: Int) {
 
 object Regression extends App {
 
-val sc = new SparkContext("local", "SparkLR", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+val sc = new SparkContext("local", "ry", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     
   // square matrix with same dimension as b
   def LU_Solve(A: Matrix, b: Vector[Double]): Vector[Double] = {
