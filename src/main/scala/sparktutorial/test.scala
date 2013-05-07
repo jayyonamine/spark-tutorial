@@ -36,7 +36,7 @@ object test {
     }
     
     val sc = new SparkContext("local", "test", "~/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
-    val points = sc.parallelize(generateData, 4).cache()
+    val points = sc.parallelize(generateData)
 
     // Initialize w to a random value
     var w = Vector(D, _ => 2 * rand.nextDouble - 1)
