@@ -11,7 +11,7 @@ import spark._
  * Logistic regression based classification.
  */
 object SparkLRcache {
-  val N = 9  // Number of data points
+  val N = 300000  // Number of data points
   val D = 3  // Numer of dimensions
   val R = 0.7  // Scaling factor
   val ITERATIONS = 2
