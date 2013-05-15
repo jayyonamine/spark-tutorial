@@ -1,5 +1,5 @@
 package 
-import scala.math._
+import scala.math.exp
 import scala.io.Source
 import spark.util.Vector
 
