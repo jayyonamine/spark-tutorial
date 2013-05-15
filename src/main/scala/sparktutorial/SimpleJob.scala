@@ -1,11 +1,10 @@
-
 package sparktutorial
 
 import spark.SparkContext
 import SparkContext._
 
 object SimpleJob extends Application {
-  val logFile = "/root/spark/LICENSE" // Should be some file on your system
+  val logFile = "hdfs://ec2-54-224-220-252.compute-1.amazonaws.com:9000/user/root/Spark-license.txt" // Should be some file on your system
 val sc = new SparkContext("local", "Simple Job", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
   val logData = sc.textFile(logFile, 2).cache()
   val numAs = logData.filter(line => line.contains("a")).count()
