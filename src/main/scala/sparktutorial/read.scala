@@ -12,7 +12,7 @@ object ReadFile extends Application {
   var predictor: Vector = Vector()
 
   var whichline = 0
-  for (line <- Source.fromFile("data.txt").getLines) {
+  for (line <- Source.fromFile("hdfs://ec2-54-224-220-252.compute-1.amazonaws.com:9000/user/root/lr_data.txt).getLines) {
 
     // parse the string
     val mystring = line.split(" ")
