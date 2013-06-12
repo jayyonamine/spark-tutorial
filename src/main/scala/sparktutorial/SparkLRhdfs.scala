@@ -33,8 +33,8 @@ val data = sc.textFile("hdfs://ec2-54-226-253-122.compute-1.amazonaws.com:9000/d
       System.exit(1)
     }
     
-    val sc = new SparkContext("local", "SparkLR", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
-    val points = sc.parallelize(generateData).cache()
+    val sc = new SparkContext("local", "SparkLRhdfs", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+
 
     // Initialize w to a random value
     var w = Vector(D, _ => 2 * rand.nextDouble - 1)
@@ -43,7 +43,7 @@ val data = sc.textFile("hdfs://ec2-54-226-253-122.compute-1.amazonaws.com:9000/d
     for (i <- 1 to ITERATIONS) {
 	    System.err.println("\n\n\n\nStarting iteration " + i + "\n\n\n\n")
       println("On iteration " + i)
-      val gradient = points.map { p =>
+      val gradient = data.map { p =>
         (1 / (1 + exp(-p.y * (w dot p.x))) - 1) * p.y * p.x
       }.reduce(_ + _)
       w -= gradient
