@@ -24,8 +24,6 @@ object SparkLRhdfs {
 		DataPoint(x,y)
 	}
 	
-
-
   def main(args: Array[String]) {
   println(args)
     if (args.length == 0) {
