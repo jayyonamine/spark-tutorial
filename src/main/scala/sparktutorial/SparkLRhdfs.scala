@@ -20,7 +20,7 @@ object SparkLRhdfs {
 	def readPoint(s: String) = {
 		val mystring = s.split("\t")
 		val y = mystring.head.toDouble 
-		val x = mystring.tail.map(_.toDouble)
+		val x = Vector(mystring.tail.map(_.toDouble))
 		DataPoint(x,y)
 	}
 	
