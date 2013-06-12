@@ -34,7 +34,7 @@ object SparkLRhdfs {
     }
     
     val sc = new SparkContext("local", "SparkLRhdfs", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
-    val data = sc.textFile("hdfs://ec2-54-226-253-122.compute-1.amazonaws.com:9000/data.tab").map(readPoints).cache()
+    val data = sc.textFile("hdfs://ec2-54-226-253-122.compute-1.amazonaws.com:9000/data.tab").map(readPoint).cache()
 
     // Initialize w to a random value
     var w = Vector(D, _ => 2 * rand.nextDouble - 1)
