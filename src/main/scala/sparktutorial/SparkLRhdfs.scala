@@ -11,8 +11,8 @@ import spark._
  * Logistic regression based classification.
  */
 object SparkLRhdfs {
-  var D = 4
-  var ITERATIONS = 3
+  var D = 6
+  var ITERATIONS = 30
   val rand = new Random(42)
 	
   	case class DataPoint(x: Vector, y: Double)
