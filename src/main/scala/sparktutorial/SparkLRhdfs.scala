@@ -12,7 +12,8 @@ import spark._
  */
 object SparkLRhdfs {
   var D = 4
-	var ITERATIONS = 3
+  var ITERATIONS = 3
+  val rand = new Random(42)
 	
   	case class DataPoint(x: Vector, y: Double)
 	
