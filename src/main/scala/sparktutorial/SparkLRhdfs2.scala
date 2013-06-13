@@ -1,4 +1,3 @@
-
 package sparktutorial
 import spark.SparkContext
 import SparkContext._
@@ -11,9 +10,9 @@ import spark._
 /**
  * Logistic regression based classification.
  */
-object SparkLRhdfs {
+object SparkLRhdfs2 {
   var D = 6
-  var ITERATIONS = 3
+  var ITERATIONS = 1
   val rand = new Random(42)
 
   	case class DataPoint(x: Vector, y: Double)
@@ -26,13 +25,7 @@ object SparkLRhdfs {
 	}
 
   def main(args: Array[String]) {
-  println("*************************************************************************************"+args.reduce(_+" "+_)+"******************************************************************************************************")
-    if (args.length == 0) {
-      System.err.println("Usage: SparkLR <master> [<slices>]")
-      System.exit(1)
-    }
-    
-    val sc = new SparkContext("local", "SparkLRhdfs", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+    val sc = new SparkContext("", "", "", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val data = sc.textFile("hdfs://ec2-107-21-70-232.compute-1.amazonaws.com:9000/logit.data").map(readPoint).cache()
 
     // Initialize w to a random value
