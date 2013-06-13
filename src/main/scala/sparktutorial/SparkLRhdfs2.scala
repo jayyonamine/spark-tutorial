@@ -45,7 +45,7 @@ object SparkLRhdfs2 {
         (1 / (1 + exp(-p.y * (w dot p.x)))) * p.y * p.x
       }.reduce(_ + _)
       println(gradient)
-      w -= (1.0 / (args(4).toDouble))*gradient  
+      w += (1.0 / (args(4).toDouble))*gradient  
       println(w)
     }
 
