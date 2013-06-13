@@ -35,7 +35,7 @@ object SparkLRhdfs2 {
     val data = sc.textFile(args(3)).map(readPoint).cache()
 
     // Initialize w to a random value
-    var w = Vector(D, _ => 2 * rand.nextDouble - 1)
+    var w = Vector(D, _ => 0)
     println("Initial w: " + w)
 
     for (i <- 1 to ITERATIONS) {
