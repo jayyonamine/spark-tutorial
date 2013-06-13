@@ -42,7 +42,7 @@ object SparkLRhdfs2 {
 	    System.err.println("\n\n\n\nStarting iteration " + i + "\n\n\n\n")
       println("On iteration " + i)
       val gradient = data.map { p =>
-        (1 / (1 + exp(-p.y * (w dot p.x))) - 1) * p.y * p.x
+        (1 / (1 + exp(-p.y * (w dot p.x)))) * p.y * p.x
       }.reduce(_ + _)
       w -= gradient
     }
