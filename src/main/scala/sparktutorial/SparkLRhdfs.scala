@@ -25,7 +25,7 @@ object SparkLRhdfs {
 	}
 	
   def main(args: Array[String]) {
-  println(args)
+  println("*************************************************************************************"+args+"******************************************************************************************************")
     if (args.length == 0) {
       System.err.println("Usage: SparkLR <master> [<slices>]")
       System.exit(1)
