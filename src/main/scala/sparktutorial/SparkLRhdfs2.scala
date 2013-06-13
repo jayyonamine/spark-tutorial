@@ -44,7 +44,9 @@ object SparkLRhdfs2 {
       val gradient = data.map { p =>
         (1 / (1 + exp(-p.y * (w dot p.x)))) * p.y * p.x
       }.reduce(_ + _)
+      println(gradient)
       w -= gradient
+      println(w)
     }
 
     println("Final w: " + w)
