@@ -10,7 +10,7 @@ import spark._
 /**
  * Logistic regression based classification.
  */
-object SparkLRhdfs {
+object SparkLRhdfs2 {
 
   val rand = new Random(42)
 
@@ -31,7 +31,7 @@ object SparkLRhdfs {
     }
     var D = args(1).toInt
     var ITERATIONS = args(2).toInt
-    val sc = new SparkContext("local", "SparkLRhdfs", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+    val sc = new SparkContext("local", "SparkLRhdfs2", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val data = sc.textFile(args(3)).map(readPoint).cache()
 
     // Initialize w to a random value
