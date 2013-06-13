@@ -12,7 +12,7 @@ import spark._
  */
 object SparkLRhdfs {
   var D = 6
-  var ITERATIONS = 30
+  var ITERATIONS = 3
   val rand = new Random(42)
 	
   	case class DataPoint(x: Vector, y: Double)
@@ -25,7 +25,7 @@ object SparkLRhdfs {
 	}
 	
   def main(args: Array[String]) {
-  println("*************************************************************************************"+args+"******************************************************************************************************")
+  println("*************************************************************************************"+args.reduce(_+" "+_)+"******************************************************************************************************")
     if (args.length == 0) {
       System.err.println("Usage: SparkLR <master> [<slices>]")
       System.exit(1)
