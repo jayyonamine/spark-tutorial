@@ -10,9 +10,8 @@ import spark._
 /**
  * Logistic regression based classification.
  */
-object SparkLRhdfs2 {
-  var D = 6
-  var ITERATIONS = 1
+object SparkLRhdfs {
+
   val rand = new Random(42)
 
   	case class DataPoint(x: Vector, y: Double)
@@ -25,8 +24,15 @@ object SparkLRhdfs2 {
 	}
 
   def main(args: Array[String]) {
-    val sc = new SparkContext("", "", "", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
-    val data = sc.textFile("hdfs://ec2-107-21-70-232.compute-1.amazonaws.com:9000/logit.data").map(readPoint).cache()
+  println(args.reduce(_+" "+_))
+    if (args.length == 0) {
+      System.err.println("Usage: SparkLR <master> [<slices>]")
+      System.exit(1)
+    }
+    var D = args(1).toInt
+    var ITERATIONS = args(2).toInt
+    val sc = new SparkContext("local", "SparkLRhdfs", "/home/jayyonamine/devel/spark", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+    val data = sc.textFile(args(3)).map(readPoint).cache()
 
     // Initialize w to a random value
     var w = Vector(D, _ => 2 * rand.nextDouble - 1)
