@@ -17,7 +17,7 @@ object SparkLRhdfs2 {
   	case class DataPoint(x: Vector, y: Double)
 
 	def readPoint(s: String) = {
-		val mystring = s.split("\t")
+		val mystring = s.split(",")
 		val y = mystring.head.toDouble 
 		val x = Vector(mystring.tail.map(_.toDouble))
 		DataPoint(x,y)
