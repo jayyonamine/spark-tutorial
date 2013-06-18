@@ -31,7 +31,7 @@ object SparkLRhdfs2 {
     }
     var D = args(1).toInt
     var ITERATIONS = args(2).toInt
-    val sc = new SparkContext(args(5), "SparkLRhdfs2", "/root/spark/", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
+    val sc = new SparkContext("spark://" + Source.fromFile("/root/spark-ec2/masters").mkString.trim  + ":7077", "SparkLRhdfs2", "/root/spark/", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
     val data = sc.textFile(args(3)).map(readPoint).cache()
 
     // Initialize w to a random value
