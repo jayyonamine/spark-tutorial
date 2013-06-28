@@ -12,5 +12,5 @@ object WordCount2 extends App {
   val counts = file.flatMap(line => line.split(" "))
     .map(word => (word, 1))
     .reduceByKey(_ + _)
-  counts.saveAsTextFile(outputDir)
+  counts.saveAsTextFile(/root/spark-tutorial/outputDir)
 }
