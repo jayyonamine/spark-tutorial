@@ -8,9 +8,7 @@ object WordCount2 {
  def main(args: Array[String]) {
   val sc = new SparkContext(args(1), "Wordcount2", "/root/spark/", List("target/scala-2.9.2/spark-tutorial_2.9.2-0.1.jar"))
   val file = sc.textFile(args(2)).cache()
-  val counts = file.flatMap(line => line.split(" "))
-    .map(word => (word, 1))
-    .reduceByKey(_ + _)
+  val counts = file.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
   counts.saveAsTextFile(args(3))
   }
 }
